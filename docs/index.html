@@ -5,10 +5,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>40000 images</title>
+    <style>
+        img{
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hello world!</h1>
-    <img src="images/tile00000.jpg">
+    <div id="cont">
+        <img src="">
+    </div>
+    <script>
+        var i = 0;
+        while (i < 160) {
+            var newDiv = document.createElement("DIV");
+            newDiv.id = "row-" + i;
+            document.getElementById("cont").appendChild(newDiv);
+            var j = 0;
+            while(j < 250){
+                var k = (i*250) + j;
+                var newImg = document.createElement("IMG");
+                newImg.src = "images/tile" + ("0000" + k).slice(-5) + ".jpg";
+                document.getElementById("row-" + i).appendChild(newImg);
+                j++;
+            }
+            i++;
+        }
+    </script>
 </body>
 </html>
